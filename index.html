@@ -44,7 +44,13 @@ h1 em { display: block; color: var(--coral); font-weight: 500; text-shadow: 2px 
 @media (hover: hover) { .open-letter:hover { transform: rotate(1deg) translateY(-5px); box-shadow: 10px 11px 0 var(--coral), 13px 14px 0 var(--ink); background: #3945a1; } .open-letter:hover .button-arrow { transform: translateX(4px) rotate(-20deg); } }
 .open-letter:active { transform: rotate(0) translate(5px, 5px); box-shadow: 2px 2px 0 var(--coral), 4px 4px 0 var(--ink); }
 @keyframes sparkle { 50% { transform: rotate(24deg) scale(1.12); } }
-.open-letter:focus-visible, .close-letter:focus-visible { outline: 3px solid var(--coral); outline-offset: 5px; }
+.open-letter:focus-visible, .close-letter:focus-visible, .music-toggle:focus-visible { outline: 3px solid var(--coral); outline-offset: 5px; }
+.music-toggle { position: fixed; z-index: 8; right: clamp(18px, 3vw, 42px); bottom: clamp(18px, 3vw, 36px); display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 7px 15px 7px 7px; border: 2px solid var(--ink); border-radius: 999px; background: var(--butter); color: var(--ink); box-shadow: 5px 5px 0 var(--ink); cursor: pointer; font-size: .76rem; font-weight: 700; white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease; }
+.music-toggle:hover { transform: translateY(-3px); box-shadow: 5px 8px 0 var(--ink); }
+.music-toggle:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--ink); }
+.music-disc { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: var(--butter); font-size: 1.1rem; }
+.music-toggle[aria-pressed="true"] .music-disc { animation: disc-spin 5s linear infinite; }
+@keyframes disc-spin { to { transform: rotate(360deg); } }
 .footer { margin-top: clamp(46px, 6vw, 90px); color: var(--ink); font-size: .8rem; font-weight: 700; letter-spacing: .17em; }
 .photo-panel { grid-column: 1; grid-row: 1; position: relative; display: grid; place-items: center; min-height: 100svh; overflow: hidden; padding: clamp(34px, 5vw, 80px); background-color: var(--coral); background-image: radial-gradient(var(--butter) 2px, transparent 2.5px); background-size: 22px 22px; }
 .photo-panel::before { content: ''; position: absolute; top: -60px; left: -75px; width: min(25vw, 350px); height: min(25vw, 350px); border: 38px solid var(--ink); border-radius: 50%; opacity: .95; }
@@ -125,6 +131,9 @@ h1 em { display: block; color: var(--coral); font-weight: 500; text-shadow: 2px 
       </aside>
     </main>
 
+    <button class="music-toggle" id="musicToggle" type="button" aria-label="Bật nhạc nền" aria-pressed="false"><span class="music-disc" aria-hidden="true">♫</span><span class="music-label">Bật nhạc</span></button>
+    <audio id="backgroundMusic" src="./danh-cho-em.mp3" preload="metadata" loop></audio>
+
     <div class="letter-backdrop" id="letterBackdrop" aria-hidden="true">
       <section class="letter" role="dialog" aria-modal="true" aria-labelledby="letterTitle" tabindex="-1">
         <button class="close-letter" id="closeLetter" type="button" aria-label="Đóng lời chúc">×</button>
@@ -141,7 +150,35 @@ h1 em { display: block; color: var(--coral); font-weight: 500; text-shadow: 2px 
       const closeButton = document.getElementById('closeLetter');
       const backdrop = document.getElementById('letterBackdrop');
       const letter = backdrop.querySelector('.letter');
+      const music = document.getElementById('backgroundMusic');
+      const musicToggle = document.getElementById('musicToggle');
+      const musicLabel = musicToggle.querySelector('.music-label');
       let previousFocus;
+      let musicPausedByUser = false;
+
+      music.volume = .55;
+      function updateMusicButton() {
+        const playing = !music.paused;
+        musicToggle.setAttribute('aria-pressed', String(playing));
+        musicToggle.setAttribute('aria-label', playing ? 'Tắt nhạc nền' : 'Bật nhạc nền');
+        musicLabel.textContent = playing ? 'Tắt nhạc' : 'Bật nhạc';
+      }
+      function playMusic() {
+        const attempt = music.play();
+        if (attempt) attempt.then(updateMusicButton).catch(updateMusicButton);
+      }
+      musicToggle.addEventListener('click', () => {
+        if (music.paused) {
+          musicPausedByUser = false;
+          playMusic();
+        } else {
+          musicPausedByUser = true;
+          music.pause();
+        }
+      });
+      music.addEventListener('play', updateMusicButton);
+      music.addEventListener('pause', updateMusicButton);
+      playMusic();
 
       function celebrate() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -160,6 +197,7 @@ h1 em { display: block; color: var(--coral); font-weight: 500; text-shadow: 2px 
       }
 
       function openLetter() {
+        if (!musicPausedByUser && music.paused) playMusic();
         previousFocus = document.activeElement;
         backdrop.classList.add('open');
         backdrop.setAttribute('aria-hidden', 'false');
