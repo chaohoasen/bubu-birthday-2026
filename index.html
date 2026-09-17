@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#270d1b" />
+    <meta name="description" content="Một tấm thiệp sinh nhật dành riêng cho người thương, ngày 18 tháng 9 năm 2026." />
+    <title>Chúc mừng sinh nhật người thương | 18.09.2026</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23270d1b'/%3E%3Cpath d='M32 50 13 31c-9-10 5-25 17-12l2 2 2-2c12-13 26 2 17 12Z' fill='%23f5b7bd'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+    <style>
+      :root { color-scheme: dark; --wine: #270d1b; --wine-soft: #3b1528; --rose: #f4b9c1; --cream: #fff3ed; --muted: #dac9ce; }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--wine); color: var(--cream); font-family: 'Be Vietnam Pro', 'Segoe UI', Arial, sans-serif; }
+      button { font: inherit; }
+      .page { min-height: 100svh; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); overflow: hidden; }
+      .message { position: relative; display: flex; flex-direction: column; justify-content: center; padding: clamp(32px, 6vw, 104px); isolation: isolate; }
+      .message::before { content: ''; position: absolute; z-index: -1; width: 46vw; height: 46vw; max-width: 650px; max-height: 650px; border: 1px solid rgba(244,185,193,.13); border-radius: 50%; left: -20vw; top: -15vw; box-shadow: 0 0 0 8vw rgba(244,185,193,.025), 0 0 0 17vw rgba(244,185,193,.018); }
+      .eyebrow { display: flex; align-items: center; gap: 13px; color: var(--rose); font-size: .78rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
+      .eyebrow::before { content: ''; width: 34px; height: 1px; background: currentColor; }
+      h1 { max-width: 760px; margin: clamp(24px, 4vw, 54px) 0 18px; font-family: Lora, Cambria, Georgia, serif; font-size: clamp(3.6rem, 6.2vw, 7rem); line-height: 1.11; font-weight: 400; letter-spacing: -.04em; }
+      h1 em { display: block; color: var(--rose); font-weight: 400; }
+      .intro { max-width: 530px; margin: 15px 0 0; color: var(--muted); font-size: clamp(1.05rem, 1.55vw, 1.3rem); line-height: 1.7; }
+      .actions { display: flex; align-items: center; margin-top: clamp(34px, 4vw, 62px); }
+      .open-letter { position: relative; isolation: isolate; appearance: none; display: inline-flex; align-items: center; gap: 13px; min-height: 76px; max-width: 100%; padding: 10px 13px; border: 1px solid #ffe7dc; border-radius: 19px; background: linear-gradient(115deg, #ffd5b9, #f4b9c1 65%, #f7a8bc); color: var(--wine); cursor: pointer; text-align: left; overflow: hidden; box-shadow: 0 7px 0 #a86373, 0 18px 36px rgba(9, 2, 6, .34); transition: transform .22s ease, box-shadow .22s ease, filter .22s ease; }
+      .open-letter::before { content: ''; position: absolute; z-index: -1; inset: -40%; background: linear-gradient(100deg, transparent 37%, rgba(255,255,255,.52) 48%, transparent 59%); transform: translateX(-100%) rotate(8deg); transition: transform .65s ease; }
+      .button-spark, .button-arrow { flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; }
+      .button-spark { background: var(--wine); color: #ffd5b9; font-size: 1.65rem; animation: sparkle 2.7s ease-in-out infinite; }
+      .button-arrow { background: rgba(255,255,255,.42); font-size: 1.6rem; transition: transform .22s ease; }
+      .button-copy { display: grid; gap: 2px; min-width: 0; font-size: .98rem; font-weight: 700; line-height: 1.4; }
+      .button-copy small { font-size: .73rem; font-weight: 500; letter-spacing: .04em; }
+      @media (hover: hover) { .open-letter:hover { transform: translateY(-4px); box-shadow: 0 11px 0 #a86373, 0 24px 40px rgba(9,2,6,.4); filter: saturate(1.1); } .open-letter:hover::before { transform: translateX(100%) rotate(8deg); } .open-letter:hover .button-arrow { transform: translateX(3px); } }
+      .open-letter:active { transform: translateY(5px); box-shadow: 0 2px 0 #a86373, 0 8px 18px rgba(9,2,6,.3); }
+      @keyframes sparkle { 50% { transform: rotate(-12deg) scale(1.09); } }
+      .open-letter:focus-visible, .close-letter:focus-visible { outline: 3px solid var(--cream); outline-offset: 4px; }
+      .footer { margin-top: clamp(44px, 7vw, 100px); color: #bdaab1; font-size: .85rem; letter-spacing: .08em; }
+      .photo-panel { position: relative; min-height: 100svh; padding: clamp(16px, 2vw, 30px); background: #180d13; }
+      .photo-wrap { position: relative; height: 100%; min-height: 650px; overflow: hidden; border-radius: 46% 46% 8px 8px / 24% 24% 8px 8px; background: #4b4147; }
+      .photo-wrap::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, transparent 60%, rgba(14,7,11,.6)); }
+      .photo-wrap img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 47%; filter: contrast(1.04); }
+      .photo-caption { position: absolute; z-index: 1; bottom: 35px; left: 35px; right: 35px; display: flex; justify-content: space-between; gap: 14px; color: white; font-size: .82rem; letter-spacing: .13em; text-transform: uppercase; text-shadow: 0 2px 8px #000; }
+      .age-seal { position: absolute; z-index: 2; top: 10%; left: -68px; width: 135px; height: 135px; border-radius: 50%; display: grid; place-content: center; text-align: center; background: var(--rose); color: var(--wine); border: 7px solid var(--wine); box-shadow: 0 12px 30px #0004; transform: rotate(-10deg); }
+      .age-seal strong { font-family: Lora, Cambria, Georgia, serif; font-size: 3rem; line-height: 1; font-weight: 400; }
+      .age-seal span { font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+      .letter-backdrop { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; padding: 22px; background: rgba(19, 4, 12, .78); backdrop-filter: blur(12px); opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s; }
+      .letter-backdrop.open { opacity: 1; visibility: visible; }
+      .letter { position: relative; width: min(100%, 610px); max-height: min(88svh, 820px); overflow: auto; padding: clamp(30px, 6vw, 68px); background: var(--cream); color: var(--wine); border-radius: 7px; box-shadow: 0 30px 100px #090306bb; transform: translateY(25px) scale(.96); transition: transform .4s cubic-bezier(.2,.8,.2,1); }
+      .open .letter { transform: translateY(0) scale(1); }
+      .letter::before { content: ''; position: absolute; top: 17px; left: 17px; right: 17px; bottom: 17px; border: 1px solid #d9b7b6; pointer-events: none; }
+      .close-letter { position: absolute; top: 22px; right: 22px; border: 0; background: transparent; color: var(--wine); width: 42px; height: 42px; border-radius: 50%; cursor: pointer; font-size: 1.7rem; line-height: 1; }
+      .letter-date { margin: 0 0 27px; color: #8d5667; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; }
+      .letter h2 { margin: 0 0 23px; font: 400 clamp(2.8rem, 6vw, 4.3rem)/1.18 Lora, Cambria, Georgia, serif; letter-spacing: -.03em; }
+      .letter p:not(.letter-date):not(.signature) { margin: 0 0 18px; font: 1.03rem/1.85 'Be Vietnam Pro', 'Segoe UI', Arial, sans-serif; }
+      .signature { margin: 31px 0 0; color: #9b5267; font: italic 1.5rem Lora, Cambria, Georgia, serif; }
+      .confetti { position: fixed; z-index: 11; width: 9px; height: 9px; border-radius: 2px; pointer-events: none; animation: float-down 2.4s ease-out forwards; }
+      @keyframes float-down { 0% { opacity: 0; transform: translateY(-30px) rotate(0); } 10% { opacity: 1; } 100% { opacity: 0; transform: translateY(100vh) rotate(600deg); } }
+      @media (max-width: 800px) {
+        .page { display: flex; flex-direction: column-reverse; }
+        .photo-panel { flex: none; min-height: 0; height: clamp(250px, 38svh, 390px); padding: 12px 12px 0; }
+        .photo-wrap { min-height: 0; border-radius: 42% 42% 5px 5px / 32% 32% 5px 5px; }
+        .photo-wrap img { object-position: 50% 37%; }
+        .photo-caption { left: 18px; right: 18px; bottom: 17px; font-size: .75rem; letter-spacing: .05em; }
+        .age-seal { top: 28px; bottom: auto; left: auto; right: 22px; width: 96px; height: 96px; border-width: 4px; }
+        .age-seal strong { font-size: 2.2rem; }
+        .age-seal span { font-size: .56rem; }
+        .message { flex: 1; min-height: 0; padding: 31px 24px 42px; }
+        .message::before { display: none; }
+        .eyebrow { gap: 9px; font-size: .73rem; letter-spacing: .07em; line-height: 1.5; }
+        .eyebrow::before { width: 18px; flex: none; }
+        h1 { margin: 15px 0 9px; font-size: clamp(2.75rem, 11.5vw, 5.5rem); line-height: 1.13; letter-spacing: -.035em; }
+        .intro { margin-top: 7px; font-size: 1rem; line-height: 1.65; }
+        .actions { margin-top: 26px; }
+        .open-letter { width: 100%; justify-content: space-between; min-height: 76px; }
+        .footer { margin-top: 33px; font-size: .8rem; }
+        .letter-backdrop { padding: 12px; align-items: end; }
+        .letter { width: 100%; max-height: 91svh; padding: 64px 28px 37px; border-radius: 22px 22px 8px 8px; }
+        .letter::before { inset: 12px; border-radius: 13px 13px 2px 2px; }
+        .close-letter { top: 16px; right: 17px; width: 48px; height: 48px; }
+        .letter h2 { font-size: clamp(2.25rem, 9vw, 3.2rem); }
+        .letter p:not(.letter-date):not(.signature) { font-size: 1rem; line-height: 1.75; }
+      }
+      @media (max-width: 350px) { .message { padding-inline: 19px; } .photo-caption span:first-child { max-width: 75%; } .button-spark, .button-arrow { width: 42px; height: 42px; } .open-letter { gap: 9px; } }
+      @media (max-width: 800px) and (max-height: 650px) { .photo-panel { height: 175px; } .message { padding-top: 21px; } .age-seal { width: 78px; height: 78px; top: 22px; } .age-seal strong { font-size: 1.75rem; } .age-seal span { font-size: .48rem; } }
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="message" aria-labelledby="headline">
+        <div class="eyebrow">18.09.2026 · Dành riêng cho em</div>
+        <h1 id="headline">Chúc mừng <em>sinh nhật em.</em></h1>
+        <p class="intro">Chúc tuổi 24 của người mình yêu luôn có thật nhiều niềm vui, bình yên và những điều khiến em mỉm cười.</p>
+        <div class="actions">
+          <button class="open-letter" id="openLetter" type="button" aria-haspopup="dialog"><span class="button-spark" aria-hidden="true">✦</span><span class="button-copy">Mở lời chúc bí mật<small>Chỉ dành riêng cho em</small></span><span class="button-arrow" aria-hidden="true">→</span></button>
+        </div>
+        <div class="footer">18.09.2002 — 18.09.2026</div>
+      </section>
+      <aside class="photo-panel" aria-label="Bức ảnh của chúng mình">
+        <div class="photo-wrap">
+          <img src="./our-photo.png" alt="Khoảnh khắc hai người bên nhau với bó hoa, trong bức ảnh đen trắng" />
+          <div class="photo-caption"><span>Một khoảnh khắc của chúng mình</span><span>♡ 2026</span></div>
+        </div>
+        <div class="age-seal" aria-label="Tuổi 24"><strong>24</strong><span>tuổi rực rỡ</span></div>
+      </aside>
+    </main>
+
+    <div class="letter-backdrop" id="letterBackdrop" aria-hidden="true">
+      <section class="letter" role="dialog" aria-modal="true" aria-labelledby="letterTitle" tabindex="-1">
+        <button class="close-letter" id="closeLetter" type="button" aria-label="Đóng lời chúc">×</button>
+        <p class="letter-date">Ngày 18 tháng 9 năm 2026</p>
+        <h2 id="letterTitle">Gửi Bubu của anh,</h2>
+        <p>Ú òa, vậy là có thể đây là lần cuối Bubu của anh đón sinh nhật với tư cách độc thân rùi nhỉ!</p>
+        <p>Tuổi mới òi, chúc em ngày càng xinh đẹp, ngày càng can đảm để theo đuổi điều Bubu mong muốn. Mong Chúa luôn ở cùng và ban phước cho Bubu trong tuổi mới.</p>
+        <p>Chúc mừng sinh nhật, người thương của anh. Hy vọng sẽ còn cùng em tạo nên thật nhiều kỷ niệm đẹp cho last dance này kkk.</p>
+        <p class="signature">Thương em iu rất nhiều ♡</p>
+      </section>
+    </div>
+    <script>
+      const openButton = document.getElementById('openLetter');
+      const closeButton = document.getElementById('closeLetter');
+      const backdrop = document.getElementById('letterBackdrop');
+      const letter = backdrop.querySelector('.letter');
+      let previousFocus;
+
+      function celebrate() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const colors = ['#f4b9c1', '#fff3ed', '#d9829b', '#e8bd8b'];
+        for (let i = 0; i < 36; i++) {
+          const piece = document.createElement('span');
+          piece.className = 'confetti';
+          piece.style.left = `${Math.random() * 100}vw`;
+          piece.style.top = `${-20 - Math.random() * 30}px`;
+          piece.style.background = colors[i % colors.length];
+          piece.style.animationDelay = `${Math.random() * .55}s`;
+          piece.style.animationDuration = `${1.8 + Math.random() * 1.3}s`;
+          document.body.appendChild(piece);
+          piece.addEventListener('animationend', () => piece.remove(), { once: true });
+        }
+      }
+
+      function openLetter() {
+        previousFocus = document.activeElement;
+        backdrop.classList.add('open');
+        backdrop.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        closeButton.focus();
+        celebrate();
+      }
+
+      function closeLetter() {
+        backdrop.classList.remove('open');
+        backdrop.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        previousFocus?.focus();
+      }
+
+      openButton.addEventListener('click', openLetter);
+      closeButton.addEventListener('click', closeLetter);
+      backdrop.addEventListener('click', event => { if (event.target === backdrop) closeLetter(); });
+      document.addEventListener('keydown', event => {
+        if (!backdrop.classList.contains('open')) return;
+        if (event.key === 'Escape') closeLetter();
+        if (event.key === 'Tab') {
+          event.preventDefault();
+          closeButton.focus();
+        }
+      });
+    </script>
+  </body>
+</html>
